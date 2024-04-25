@@ -9,7 +9,7 @@ $fetchUrl = $_GET["url"];
 
 // Rewrite base URL should be of the form
 // http(s)://domain/?url=?
-$rewriteBaseUrl = "https://domain/?url=";
+$rewriteBaseUrl = sprintf("%s%s%s", empty($_SERVER["HTTPS"]) ? "http://" : "https://", $_SERVER["SERVER_NAME"], "/?url=");
 
 $curl_options = array(
 	CURLOPT_URL 			=> $fetchUrl,
